@@ -961,8 +961,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                       color: Color(0xFFEFEFEF),
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: Image.network(
-                          'https://images.unsplash.com/photo-1508025522233-ed33103769f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2129&q=80',
+                        image: Image.asset(
+                          'assets/images/544.jpg',
                         ).image,
                       ),
                     ),

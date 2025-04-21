@@ -85,20 +85,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
         ),
         FFRoute(
+          name: LoginWidget.routeName,
+          path: LoginWidget.routePath,
+          builder: (context, params) => LoginWidget(),
+        ),
+        FFRoute(
           name: HomePageWidget.routeName,
           path: HomePageWidget.routePath,
           requireAuth: true,
           builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
-          name: LoginWidget.routeName,
-          path: LoginWidget.routePath,
-          builder: (context, params) => LoginWidget(),
-        ),
-        FFRoute(
           name: SignUpWidget.routeName,
           path: SignUpWidget.routePath,
           builder: (context, params) => SignUpWidget(),
+        ),
+        FFRoute(
+          name: EditProfileWidget.routeName,
+          path: EditProfileWidget.routePath,
+          builder: (context, params) => EditProfileWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
