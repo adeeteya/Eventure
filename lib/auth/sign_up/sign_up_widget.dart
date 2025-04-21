@@ -97,12 +97,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   width: 48.0,
                                   height: 48.0,
                                   decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
                                       image: Image.asset(
-                                        'assets/images/DAAsset_1.png',
+                                        'assets/images/ic_launcher.png',
                                       ).image,
                                     ),
                                     boxShadow: [
