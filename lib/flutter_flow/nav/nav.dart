@@ -5,8 +5,6 @@ import 'package:provider/provider.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
-import '/backend/push_notifications/push_notifications_handler.dart'
-    show PushNotificationsHandler;
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -78,18 +76,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : HomePageWidget(),
+          appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : HomePageWidget(),
+              appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
         ),
         FFRoute(
           name: HomePageWidget.routeName,
           path: HomePageWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => HomePageWidget(),
+        ),
+        FFRoute(
+          name: LoginWidget.routeName,
+          path: LoginWidget.routePath,
+          builder: (context, params) => LoginWidget(),
+        ),
+        FFRoute(
+          name: SignUpWidget.routeName,
+          path: SignUpWidget.routePath,
+          builder: (context, params) => SignUpWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -208,6 +217,7 @@ class FFParameters {
     String paramName,
     ParamType type, {
     bool isList = false,
+    List<String>? collectionNamePath,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -225,6 +235,7 @@ class FFParameters {
       param,
       type,
       isList,
+      collectionNamePath: collectionNamePath,
     );
   }
 }
@@ -258,7 +269,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/homePage';
+            return '/login';
           }
           return null;
         },
@@ -283,7 +294,7 @@ class FFRoute {
                     ),
                   ),
                 )
-              : PushNotificationsHandler(child: page);
+              : page;
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

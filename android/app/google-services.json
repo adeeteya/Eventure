@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "540720843562",
+    "project_id": "flutter-flux-yx8nrn",
+    "storage_bucket": "flutter-flux-yx8nrn.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540720843562:android:35a51d399a72a16d8eac53",
+        "android_client_info": {
+          "package_name": "com.flutterflux.eventure"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyZorEyZ_VYYkA-31ksCWZhtWPHZzBtMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
