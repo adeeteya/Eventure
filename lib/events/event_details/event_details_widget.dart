@@ -693,8 +693,47 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 20.0),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                FFAppState().updateEventInputFieldsStruct(
+                                  (e) => e
+                                    ..title = widget.eventDocument?.title
+                                    ..type = widget.eventDocument?.type
+                                    ..description =
+                                        widget.eventDocument?.description
+                                    ..templateId =
+                                        widget.eventDocument?.templateId
+                                    ..templateHeader =
+                                        widget.eventDocument?.templateHeader
+                                    ..templateBody =
+                                        widget.eventDocument?.templateBody
+                                    ..templateFooter =
+                                        widget.eventDocument?.templateFooter
+                                    ..startDatetime =
+                                        widget.eventDocument?.startDatetime
+                                    ..endDatetime =
+                                        widget.eventDocument?.endDatetime
+                                    ..location = widget.eventDocument?.location
+                                    ..createdBy =
+                                        widget.eventDocument?.createdBy
+                                    ..createdTime =
+                                        widget.eventDocument?.createdTime,
+                                );
+                                safeSetState(() {});
+                                FFAppState().editEventIdentifier =
+                                    widget.eventDocument?.reference;
+                                safeSetState(() {});
+
+                                context.pushNamed(
+                                  EditCustomizeTemplatePageWidget.routeName,
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType:
+                                          PageTransitionType.rightToLeft,
+                                      duration: Duration(milliseconds: 350),
+                                    ),
+                                  },
+                                );
                               },
                               text: FFLocalizations.of(context).getText(
                                 'jnpjllgp' /* Edit Event */,

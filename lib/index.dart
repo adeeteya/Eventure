@@ -21,3 +21,9 @@ export '/events/events_home/events_home_widget.dart' show EventsHomeWidget;
 export '/events/event_details/event_details_widget.dart'
     show EventDetailsWidget;
 export '/discover/search/search_widget.dart' show SearchWidget;
+export '/edit_events/edit_customize_template_page/edit_customize_template_page_widget.dart'
+    show EditCustomizeTemplatePageWidget;
+export '/edit_events/edit_event_details/edit_event_details_widget.dart'
+    show EditEventDetailsWidget;
+export '/edit_events/edit_preview_event/edit_preview_event_widget.dart'
+    show EditPreviewEventWidget;

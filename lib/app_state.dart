@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -54,5 +53,11 @@ class FFAppState extends ChangeNotifier {
   EventTypes? get currentFilter => _currentFilter;
   set currentFilter(EventTypes? value) {
     _currentFilter = value;
+  }
+
+  DocumentReference? _editEventIdentifier;
+  DocumentReference? get editEventIdentifier => _editEventIdentifier;
+  set editEventIdentifier(DocumentReference? value) {
+    _editEventIdentifier = value;
   }
 }

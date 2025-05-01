@@ -154,63 +154,66 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                 child: SideBarWidget(),
               ),
               Expanded(
-                child: Container(
-                  constraints: BoxConstraints(
-                    maxWidth: 500.0,
-                  ),
-                  decoration: BoxDecoration(),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
-                    child: StreamBuilder<List<EventRecord>>(
-                      stream: queryEventRecord(
-                        queryBuilder: (eventRecord) => eventRecord.where(
-                          'type',
-                          isEqualTo: FFAppState().currentFilter?.serialize(),
+                child: Align(
+                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  child: Container(
+                    constraints: BoxConstraints(
+                      maxWidth: 500.0,
+                    ),
+                    decoration: BoxDecoration(),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          20.0, 20.0, 20.0, 20.0),
+                      child: StreamBuilder<List<EventRecord>>(
+                        stream: queryEventRecord(
+                          queryBuilder: (eventRecord) => eventRecord.where(
+                            'type',
+                            isEqualTo: FFAppState().currentFilter?.serialize(),
+                          ),
                         ),
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  FlutterFlowTheme.of(context).primary,
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
                                 ),
-                              ),
-                            ),
-                          );
-                        }
-                        List<EventRecord> listViewEventRecordList =
-                            snapshot.data!;
-
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: listViewEventRecordList.length,
-                          itemBuilder: (context, listViewIndex) {
-                            final listViewEventRecord =
-                                listViewEventRecordList[listViewIndex];
-                            return wrapWithModel(
-                              model: _model.templateListTileModels.getModel(
-                                listViewEventRecord.reference.id,
-                                listViewIndex,
-                              ),
-                              updateCallback: () => safeSetState(() {}),
-                              child: TemplateListTileWidget(
-                                key: Key(
-                                  'Key81q_${listViewEventRecord.reference.id}',
-                                ),
-                                documentEvent: listViewEventRecord,
                               ),
                             );
-                          },
-                        );
-                      },
+                          }
+                          List<EventRecord> listViewEventRecordList =
+                              snapshot.data!;
+
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewEventRecordList.length,
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewEventRecord =
+                                  listViewEventRecordList[listViewIndex];
+                              return wrapWithModel(
+                                model: _model.templateListTileModels.getModel(
+                                  listViewEventRecord.reference.id,
+                                  listViewIndex,
+                                ),
+                                updateCallback: () => safeSetState(() {}),
+                                child: TemplateListTileWidget(
+                                  key: Key(
+                                    'Key81q_${listViewEventRecord.reference.id}',
+                                  ),
+                                  documentEvent: listViewEventRecord,
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),

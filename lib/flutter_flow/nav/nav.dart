@@ -175,6 +175,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: SearchWidget.routeName,
           path: SearchWidget.routePath,
           builder: (context, params) => SearchWidget(),
+        ),
+        FFRoute(
+          name: EditCustomizeTemplatePageWidget.routeName,
+          path: EditCustomizeTemplatePageWidget.routePath,
+          builder: (context, params) => EditCustomizeTemplatePageWidget(),
+        ),
+        FFRoute(
+          name: EditEventDetailsWidget.routeName,
+          path: EditEventDetailsWidget.routePath,
+          builder: (context, params) => EditEventDetailsWidget(),
+        ),
+        FFRoute(
+          name: EditPreviewEventWidget.routeName,
+          path: EditPreviewEventWidget.routePath,
+          builder: (context, params) => EditPreviewEventWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
