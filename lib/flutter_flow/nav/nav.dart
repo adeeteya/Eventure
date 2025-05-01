@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
+import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -76,24 +77,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
-        ),
-        FFRoute(
-          name: LoginWidget.routeName,
-          path: LoginWidget.routePath,
-          builder: (context, params) => LoginWidget(),
-        ),
-        FFRoute(
-          name: HomePageWidget.routeName,
-          path: HomePageWidget.routePath,
-          requireAuth: true,
-          builder: (context, params) => HomePageWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
         ),
         FFRoute(
           name: SignUpWidget.routeName,
@@ -101,9 +91,70 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => SignUpWidget(),
         ),
         FFRoute(
+          name: LoginWidget.routeName,
+          path: LoginWidget.routePath,
+          builder: (context, params) => LoginWidget(),
+        ),
+        FFRoute(
           name: EditProfileWidget.routeName,
           path: EditProfileWidget.routePath,
           builder: (context, params) => EditProfileWidget(),
+        ),
+        FFRoute(
+          name: CreateEventCustomizePageWidget.routeName,
+          path: CreateEventCustomizePageWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'CreateEventCustomizePage')
+              : CreateEventCustomizePageWidget(),
+        ),
+        FFRoute(
+          name: PreviewPageWidget.routeName,
+          path: PreviewPageWidget.routePath,
+          builder: (context, params) => PreviewPageWidget(),
+        ),
+        FFRoute(
+          name: EventDetailsWidget.routeName,
+          path: EventDetailsWidget.routePath,
+          builder: (context, params) => EventDetailsWidget(),
+        ),
+        FFRoute(
+          name: EditTemplatePageWidget.routeName,
+          path: EditTemplatePageWidget.routePath,
+          builder: (context, params) => EditTemplatePageWidget(),
+        ),
+        FFRoute(
+          name: InviteGuestsPageWidget.routeName,
+          path: InviteGuestsPageWidget.routePath,
+          builder: (context, params) => InviteGuestsPageWidget(),
+        ),
+        FFRoute(
+          name: HomeWidget.routeName,
+          path: HomeWidget.routePath,
+          builder: (context, params) =>
+              params.isEmpty ? NavBarPage(initialPage: 'Home') : HomeWidget(),
+        ),
+        FFRoute(
+          name: ProfilePageWidget.routeName,
+          path: ProfilePageWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'ProfilePage')
+              : ProfilePageWidget(),
+        ),
+        FFRoute(
+          name: ChangePasswordWidget.routeName,
+          path: ChangePasswordWidget.routePath,
+          builder: (context, params) => ChangePasswordWidget(),
+        ),
+        FFRoute(
+          name: SubmitBugWidget.routeName,
+          path: SubmitBugWidget.routePath,
+          builder: (context, params) => SubmitBugWidget(),
+        ),
+        FFRoute(
+          name: SuggestFeatureWidget.routeName,
+          path: SuggestFeatureWidget.routePath,
+          builder: (context, params) => SuggestFeatureWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

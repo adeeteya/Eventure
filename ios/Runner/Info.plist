@@ -16,6 +16,25 @@
 	<string>Eventure</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>es</string>
+		<string>zh_Hans</string>
+		<string>hi</string>
+		<string>bn</string>
+		<string>pt</string>
+		<string>ru</string>
+		<string>ja</string>
+		<string>de</string>
+		<string>ko</string>
+		<string>fr</string>
+		<string>ta</string>
+		<string>te</string>
+		<string>mr</string>
+		<string>kn</string>
+		<string>ro</string>
+	</array>
 
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
@@ -53,10 +72,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 
-	<key>NSCameraUsageDescription</key>
-    <string>In order to take a picture or video, this app requires permission to access the camera.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-    <string>In order to upload data, this app requires permission to access the photo library.</string>
+
 
 
 
