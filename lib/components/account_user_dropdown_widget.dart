@@ -474,7 +474,7 @@ class _AccountUserDropdownWidgetState extends State<AccountUserDropdownWidget>
                                                   4.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'ngy4wxto' /* Light Mode */,
+                                              'mf325jcr' /* Light Mode */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -570,7 +570,7 @@ class _AccountUserDropdownWidgetState extends State<AccountUserDropdownWidget>
                                                   4.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'qqiwjck8' /* Dark Mode */,
+                                              'f615ma5t' /* Dark Mode */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium

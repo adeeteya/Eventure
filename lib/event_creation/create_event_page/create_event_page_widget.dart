@@ -64,7 +64,7 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget> {
             ),
             onPressed: () async {
               context.goNamed(
-                HomeWidget.routeName,
+                DiscoverWidget.routeName,
                 extra: <String, dynamic>{
                   kTransitionInfoKey: TransitionInfo(
                     hasTransition: true,

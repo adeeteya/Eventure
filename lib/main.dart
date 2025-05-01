@@ -169,7 +169,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'Home';
+  String _currentPageName = 'Discover';
   late Widget? _currentPage;
 
   @override
@@ -182,7 +182,7 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Home': HomeWidget(),
+      'Discover': DiscoverWidget(),
       'EventsHome': EventsHomeWidget(),
       'ProfilePage': ProfilePageWidget(),
     };
@@ -215,7 +215,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'crozz8ji' /* Home */,
+                'nkrw9ce5' /* Discover */,
               ),
               tooltip: '',
             ),
@@ -225,7 +225,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                '4zdjsoof' /* Events */,
+                'wxg8unhc' /* Events */,
               ),
               tooltip: '',
             ),

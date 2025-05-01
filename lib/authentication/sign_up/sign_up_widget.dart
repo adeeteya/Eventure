@@ -1158,7 +1158,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                         ));
 
                                     _navigate = () => context.goNamedAuth(
-                                        HomeWidget.routeName, context.mounted);
+                                        DiscoverWidget.routeName,
+                                        context.mounted);
                                   }
 
                                   _navigate();
@@ -1223,8 +1224,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     return;
                                   }
 
-                                  context.goNamedAuth(
-                                      HomeWidget.routeName, context.mounted);
+                                  context.goNamedAuth(DiscoverWidget.routeName,
+                                      context.mounted);
                                 },
                                 child: Material(
                                   color: Colors.transparent,

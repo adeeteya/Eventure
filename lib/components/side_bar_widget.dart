@@ -317,7 +317,7 @@ class _SideBarWidgetState extends State<SideBarWidget>
                             safeSetState(() {});
 
                             context.pushNamed(
-                              HomeWidget.routeName,
+                              DiscoverWidget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
@@ -425,7 +425,7 @@ class _SideBarWidgetState extends State<SideBarWidget>
                             safeSetState(() {});
 
                             context.pushNamed(
-                              CreateEventPageWidget.routeName,
+                              EventsHomeWidget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
@@ -465,7 +465,7 @@ class _SideBarWidgetState extends State<SideBarWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 0.0),
                                     child: Icon(
-                                      Icons.add_circle,
+                                      Icons.event,
                                       color: FFAppState().selectedNav == 1
                                           ? FlutterFlowTheme.of(context).primary
                                           : FlutterFlowTheme.of(context)
@@ -477,7 +477,7 @@ class _SideBarWidgetState extends State<SideBarWidget>
                                     Expanded(
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'ooby0x3t' /* Create Event */,
+                                          'ooby0x3t' /* Events */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium

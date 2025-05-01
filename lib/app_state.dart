@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -47,5 +48,11 @@ class FFAppState extends ChangeNotifier {
 
   void updateEventInputFieldsStruct(Function(EventStruct) updateFn) {
     updateFn(_eventInputFields);
+  }
+
+  EventTypes? _currentFilter;
+  EventTypes? get currentFilter => _currentFilter;
+  set currentFilter(EventTypes? value) {
+    _currentFilter = value;
   }
 }

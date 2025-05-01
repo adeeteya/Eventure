@@ -83,7 +83,7 @@ class _CustomizeTemplatePageWidgetState
           ),
           title: Text(
             FFLocalizations.of(context).getText(
-              'ehhn66hf' /* Customize Template */,
+              '3f84kxa7' /* Customize Template */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   font: GoogleFonts.interTight(

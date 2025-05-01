@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -108,6 +107,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CreateEventPageWidget(),
         ),
         FFRoute(
+          name: ChangePasswordWidget.routeName,
+          path: ChangePasswordWidget.routePath,
+          builder: (context, params) => ChangePasswordWidget(),
+        ),
+        FFRoute(
+          name: SuggestFeatureWidget.routeName,
+          path: SuggestFeatureWidget.routePath,
+          builder: (context, params) => SuggestFeatureWidget(),
+        ),
+        FFRoute(
           name: PreviewPageWidget.routeName,
           path: PreviewPageWidget.routePath,
           builder: (context, params) => PreviewPageWidget(),
@@ -123,10 +132,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CustomizeTemplatePageWidget(),
         ),
         FFRoute(
-          name: HomeWidget.routeName,
-          path: HomeWidget.routePath,
-          builder: (context, params) =>
-              params.isEmpty ? NavBarPage(initialPage: 'Home') : HomeWidget(),
+          name: DiscoverWidget.routeName,
+          path: DiscoverWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Discover')
+              : DiscoverWidget(),
         ),
         FFRoute(
           name: ProfilePageWidget.routeName,
@@ -137,19 +147,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : ProfilePageWidget(),
         ),
         FFRoute(
-          name: ChangePasswordWidget.routeName,
-          path: ChangePasswordWidget.routePath,
-          builder: (context, params) => ChangePasswordWidget(),
-        ),
-        FFRoute(
           name: SubmitBugWidget.routeName,
           path: SubmitBugWidget.routePath,
           builder: (context, params) => SubmitBugWidget(),
-        ),
-        FFRoute(
-          name: SuggestFeatureWidget.routeName,
-          path: SuggestFeatureWidget.routePath,
-          builder: (context, params) => SuggestFeatureWidget(),
         ),
         FFRoute(
           name: EventsHomeWidget.routeName,
@@ -161,7 +161,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: EventDetailsWidget.routeName,
           path: EventDetailsWidget.routePath,
-          builder: (context, params) => EventDetailsWidget(),
+          asyncParams: {
+            'eventDocument': getDoc(['Event'], EventRecord.fromSnapshot),
+          },
+          builder: (context, params) => EventDetailsWidget(
+            eventDocument: params.getParam(
+              'eventDocument',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: SearchWidget.routeName,
+          path: SearchWidget.routePath,
+          builder: (context, params) => SearchWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

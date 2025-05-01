@@ -547,7 +547,7 @@ class _PreviewPageWidgetState extends State<PreviewPageWidget> {
                             });
 
                             context.goNamed(
-                              HomeWidget.routeName,
+                              DiscoverWidget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,

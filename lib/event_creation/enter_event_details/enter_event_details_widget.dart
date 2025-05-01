@@ -82,7 +82,7 @@ class _EnterEventDetailsWidgetState extends State<EnterEventDetailsWidget> {
           ),
           title: Text(
             FFLocalizations.of(context).getText(
-              '8qq0hxrs' /* Event Details  */,
+              'm9bdvwza' /* Event Details  */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   font: GoogleFonts.interTight(

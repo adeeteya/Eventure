@@ -738,7 +738,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     }
 
                                     _navigate = () => context.goNamedAuth(
-                                        HomeWidget.routeName, context.mounted);
+                                        DiscoverWidget.routeName,
+                                        context.mounted);
                                   }
 
                                   _navigate();
@@ -803,8 +804,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     return;
                                   }
 
-                                  context.goNamedAuth(
-                                      HomeWidget.routeName, context.mounted);
+                                  context.goNamedAuth(DiscoverWidget.routeName,
+                                      context.mounted);
                                 },
                                 child: Material(
                                   color: Colors.transparent,
