@@ -183,7 +183,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Home': HomeWidget(),
-      'CreateEventCustomizePage': CreateEventCustomizePageWidget(),
+      'EventsHome': EventsHomeWidget(),
       'ProfilePage': ProfilePageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -215,17 +215,17 @@ class _NavBarPageState extends State<NavBarPage> {
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                '0b8prm95' /* Home */,
+                'crozz8ji' /* Home */,
               ),
               tooltip: '',
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.add_circle,
+                Icons.event,
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'omwcwc29' /* Create Event */,
+                '4zdjsoof' /* Events */,
               ),
               tooltip: '',
             ),

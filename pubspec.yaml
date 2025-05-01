@@ -39,7 +39,6 @@ dependencies:
   cloud_firestore_web: 4.3.4
   collection: 1.19.0
   dropdown_button2: 2.3.9
-  easy_debounce: 2.0.1
   firebase_auth: 5.3.3
   firebase_auth_platform_interface: 7.4.9
   firebase_auth_web: 5.13.4
@@ -76,8 +75,6 @@ dependencies:
   plugin_platform_interface: 2.1.8
   provider: 6.1.2
   rxdart: 0.27.7
-  share_plus: 10.0.2
-  share_plus_platform_interface: 5.0.0
   shared_preferences: 2.3.2
   shared_preferences_android: 2.3.2
   shared_preferences_foundation: 2.5.2

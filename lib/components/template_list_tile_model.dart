@@ -1,9 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
-import 'invite_guests_page_widget.dart' show InviteGuestsPageWidget;
+import 'template_list_tile_widget.dart' show TemplateListTileWidget;
 import 'package:flutter/material.dart';
 
-class InviteGuestsPageModel extends FlutterFlowModel<InviteGuestsPageWidget> {
+class TemplateListTileModel extends FlutterFlowModel<TemplateListTileWidget> {
   @override
   void initState(BuildContext context) {}
 

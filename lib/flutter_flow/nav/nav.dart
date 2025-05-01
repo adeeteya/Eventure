@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -101,11 +103,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => EditProfileWidget(),
         ),
         FFRoute(
-          name: CreateEventCustomizePageWidget.routeName,
-          path: CreateEventCustomizePageWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'CreateEventCustomizePage')
-              : CreateEventCustomizePageWidget(),
+          name: CreateEventPageWidget.routeName,
+          path: CreateEventPageWidget.routePath,
+          builder: (context, params) => CreateEventPageWidget(),
         ),
         FFRoute(
           name: PreviewPageWidget.routeName,
@@ -113,19 +113,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PreviewPageWidget(),
         ),
         FFRoute(
-          name: EventDetailsWidget.routeName,
-          path: EventDetailsWidget.routePath,
-          builder: (context, params) => EventDetailsWidget(),
+          name: EnterEventDetailsWidget.routeName,
+          path: EnterEventDetailsWidget.routePath,
+          builder: (context, params) => EnterEventDetailsWidget(),
         ),
         FFRoute(
-          name: EditTemplatePageWidget.routeName,
-          path: EditTemplatePageWidget.routePath,
-          builder: (context, params) => EditTemplatePageWidget(),
-        ),
-        FFRoute(
-          name: InviteGuestsPageWidget.routeName,
-          path: InviteGuestsPageWidget.routePath,
-          builder: (context, params) => InviteGuestsPageWidget(),
+          name: CustomizeTemplatePageWidget.routeName,
+          path: CustomizeTemplatePageWidget.routePath,
+          builder: (context, params) => CustomizeTemplatePageWidget(),
         ),
         FFRoute(
           name: HomeWidget.routeName,
@@ -155,6 +150,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: SuggestFeatureWidget.routeName,
           path: SuggestFeatureWidget.routePath,
           builder: (context, params) => SuggestFeatureWidget(),
+        ),
+        FFRoute(
+          name: EventsHomeWidget.routeName,
+          path: EventsHomeWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'EventsHome')
+              : EventsHomeWidget(),
+        ),
+        FFRoute(
+          name: EventDetailsWidget.routeName,
+          path: EventDetailsWidget.routePath,
+          builder: (context, params) => EventDetailsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -274,6 +281,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -292,6 +300,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }

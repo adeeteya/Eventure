@@ -425,7 +425,7 @@ class _SideBarWidgetState extends State<SideBarWidget>
                             safeSetState(() {});
 
                             context.pushNamed(
-                              CreateEventCustomizePageWidget.routeName,
+                              CreateEventPageWidget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
