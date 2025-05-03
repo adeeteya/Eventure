@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
+import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -76,24 +78,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
-        ),
-        FFRoute(
-          name: LoginWidget.routeName,
-          path: LoginWidget.routePath,
-          builder: (context, params) => LoginWidget(),
-        ),
-        FFRoute(
-          name: HomePageWidget.routeName,
-          path: HomePageWidget.routePath,
-          requireAuth: true,
-          builder: (context, params) => HomePageWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
         ),
         FFRoute(
           name: SignUpWidget.routeName,
@@ -101,9 +92,104 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => SignUpWidget(),
         ),
         FFRoute(
+          name: LoginWidget.routeName,
+          path: LoginWidget.routePath,
+          builder: (context, params) => LoginWidget(),
+        ),
+        FFRoute(
           name: EditProfileWidget.routeName,
           path: EditProfileWidget.routePath,
           builder: (context, params) => EditProfileWidget(),
+        ),
+        FFRoute(
+          name: CreateEventPageWidget.routeName,
+          path: CreateEventPageWidget.routePath,
+          builder: (context, params) => CreateEventPageWidget(),
+        ),
+        FFRoute(
+          name: ChangePasswordWidget.routeName,
+          path: ChangePasswordWidget.routePath,
+          builder: (context, params) => ChangePasswordWidget(),
+        ),
+        FFRoute(
+          name: SuggestFeatureWidget.routeName,
+          path: SuggestFeatureWidget.routePath,
+          builder: (context, params) => SuggestFeatureWidget(),
+        ),
+        FFRoute(
+          name: PreviewPageWidget.routeName,
+          path: PreviewPageWidget.routePath,
+          builder: (context, params) => PreviewPageWidget(),
+        ),
+        FFRoute(
+          name: EnterEventDetailsWidget.routeName,
+          path: EnterEventDetailsWidget.routePath,
+          builder: (context, params) => EnterEventDetailsWidget(),
+        ),
+        FFRoute(
+          name: CustomizeTemplatePageWidget.routeName,
+          path: CustomizeTemplatePageWidget.routePath,
+          builder: (context, params) => CustomizeTemplatePageWidget(),
+        ),
+        FFRoute(
+          name: DiscoverWidget.routeName,
+          path: DiscoverWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Discover')
+              : DiscoverWidget(),
+        ),
+        FFRoute(
+          name: ProfilePageWidget.routeName,
+          path: ProfilePageWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'ProfilePage')
+              : ProfilePageWidget(),
+        ),
+        FFRoute(
+          name: SubmitBugWidget.routeName,
+          path: SubmitBugWidget.routePath,
+          builder: (context, params) => SubmitBugWidget(),
+        ),
+        FFRoute(
+          name: EventsHomeWidget.routeName,
+          path: EventsHomeWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'EventsHome')
+              : EventsHomeWidget(),
+        ),
+        FFRoute(
+          name: EventDetailsWidget.routeName,
+          path: EventDetailsWidget.routePath,
+          asyncParams: {
+            'eventDocument': getDoc(['Event'], EventRecord.fromSnapshot),
+          },
+          builder: (context, params) => EventDetailsWidget(
+            eventDocument: params.getParam(
+              'eventDocument',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: SearchWidget.routeName,
+          path: SearchWidget.routePath,
+          builder: (context, params) => SearchWidget(),
+        ),
+        FFRoute(
+          name: EditCustomizeTemplatePageWidget.routeName,
+          path: EditCustomizeTemplatePageWidget.routePath,
+          builder: (context, params) => EditCustomizeTemplatePageWidget(),
+        ),
+        FFRoute(
+          name: EditEventDetailsWidget.routeName,
+          path: EditEventDetailsWidget.routePath,
+          builder: (context, params) => EditEventDetailsWidget(),
+        ),
+        FFRoute(
+          name: EditPreviewEventWidget.routeName,
+          path: EditPreviewEventWidget.routePath,
+          builder: (context, params) => EditPreviewEventWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -223,6 +309,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -241,6 +328,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }
