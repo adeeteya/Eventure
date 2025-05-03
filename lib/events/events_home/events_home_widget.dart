@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'events_home_model.dart';
 export 'events_home_model.dart';
@@ -90,25 +91,16 @@ class _EventsHomeWidgetState extends State<EventsHomeWidget>
                 child: SideBarWidget(),
               ),
               Expanded(
-                child: Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
-                  child: Container(
-                    constraints: BoxConstraints(
-                      maxWidth: 500.0,
-                    ),
-                    decoration: BoxDecoration(),
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment(0.0, 0),
-                          child: TabBar(
-                            labelColor:
-                                FlutterFlowTheme.of(context).primaryText,
-                            unselectedLabelColor:
-                                FlutterFlowTheme.of(context).secondaryText,
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment(0.0, 0),
+                      child: TabBar(
+                        labelColor: FlutterFlowTheme.of(context).primaryText,
+                        unselectedLabelColor:
+                            FlutterFlowTheme.of(context).secondaryText,
+                        labelStyle:
+                            FlutterFlowTheme.of(context).titleMedium.override(
                                   font: GoogleFonts.interTight(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .titleMedium
@@ -125,9 +117,8 @@ class _EventsHomeWidgetState extends State<EventsHomeWidget>
                                       .titleMedium
                                       .fontStyle,
                                 ),
-                            unselectedLabelStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
+                        unselectedLabelStyle:
+                            FlutterFlowTheme.of(context).titleMedium.override(
                                   font: GoogleFonts.interTight(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .titleMedium
@@ -144,102 +135,106 @@ class _EventsHomeWidgetState extends State<EventsHomeWidget>
                                       .titleMedium
                                       .fontStyle,
                                 ),
-                            indicatorColor:
-                                FlutterFlowTheme.of(context).primary,
-                            tabs: [
-                              Tab(
-                                text: FFLocalizations.of(context).getText(
-                                  'bjlf7vkm' /* My Events */,
-                                ),
-                              ),
-                              Tab(
-                                text: FFLocalizations.of(context).getText(
-                                  'u15xcb3h' /* RSVP's */,
-                                ),
-                              ),
-                            ],
-                            controller: _model.tabBarController,
-                            onTap: (i) async {
-                              [() async {}, () async {}][i]();
-                            },
+                        indicatorColor: FlutterFlowTheme.of(context).primary,
+                        tabs: [
+                          Tab(
+                            text: FFLocalizations.of(context).getText(
+                              'bjlf7vkm' /* My Events */,
+                            ),
                           ),
-                        ),
-                        Expanded(
-                          child: TabBarView(
-                            controller: _model.tabBarController,
-                            children: [
-                              Padding(
+                          Tab(
+                            text: FFLocalizations.of(context).getText(
+                              'u15xcb3h' /* RSVP's */,
+                            ),
+                          ),
+                        ],
+                        controller: _model.tabBarController,
+                        onTap: (i) async {
+                          [() async {}, () async {}][i]();
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      child: TabBarView(
+                        controller: _model.tabBarController,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, -1.0),
+                            child: Container(
+                              constraints: BoxConstraints(
+                                maxWidth: 600.0,
+                              ),
+                              decoration: BoxDecoration(),
+                              child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 20.0, 0.0, 20.0),
-                                child: Container(
-                                  constraints: BoxConstraints(
-                                    maxWidth: 500.0,
-                                  ),
-                                  decoration: BoxDecoration(),
-                                  child: StreamBuilder<List<EventRecord>>(
-                                    stream: queryEventRecord(
-                                      queryBuilder: (eventRecord) =>
-                                          eventRecord.where(
-                                        'created_by',
-                                        isEqualTo: currentUserReference,
-                                      ),
+                                    20.0, 20.0, 20.0, 20.0),
+                                child: StreamBuilder<List<EventRecord>>(
+                                  stream: queryEventRecord(
+                                    queryBuilder: (eventRecord) =>
+                                        eventRecord.where(
+                                      'created_by',
+                                      isEqualTo: currentUserReference,
                                     ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                              ),
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: SpinKitRipple(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            size: 50.0,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<EventRecord> listViewEventRecordList =
+                                        snapshot.data!;
+
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: listViewEventRecordList.length,
+                                      itemBuilder: (context, listViewIndex) {
+                                        final listViewEventRecord =
+                                            listViewEventRecordList[
+                                                listViewIndex];
+                                        return wrapWithModel(
+                                          model: _model.templateListTileModels
+                                              .getModel(
+                                            listViewEventRecord.reference.id,
+                                            listViewIndex,
+                                          ),
+                                          updateCallback: () =>
+                                              safeSetState(() {}),
+                                          child: TemplateListTileWidget(
+                                            key: Key(
+                                              'Keyauw_${listViewEventRecord.reference.id}',
                                             ),
+                                            documentEvent: listViewEventRecord,
                                           ),
                                         );
-                                      }
-                                      List<EventRecord>
-                                          listViewEventRecordList =
-                                          snapshot.data!;
-
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount:
-                                            listViewEventRecordList.length,
-                                        itemBuilder: (context, listViewIndex) {
-                                          final listViewEventRecord =
-                                              listViewEventRecordList[
-                                                  listViewIndex];
-                                          return wrapWithModel(
-                                            model: _model.templateListTileModels
-                                                .getModel(
-                                              listViewEventRecord.reference.id,
-                                              listViewIndex,
-                                            ),
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: TemplateListTileWidget(
-                                              key: Key(
-                                                'Keyauw_${listViewEventRecord.reference.id}',
-                                              ),
-                                              documentEvent:
-                                                  listViewEventRecord,
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
+                                      },
+                                    );
+                                  },
                                 ),
                               ),
-                              Padding(
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0.0, -1.0),
+                            child: Container(
+                              constraints: BoxConstraints(
+                                maxWidth: 600.0,
+                              ),
+                              decoration: BoxDecoration(),
+                              child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 20.0, 0.0, 20.0),
+                                    20.0, 20.0, 20.0, 20.0),
                                 child: StreamBuilder<List<RsvpRecord>>(
                                   stream: queryRsvpRecord(
                                     queryBuilder: (rsvpRecord) =>
@@ -255,12 +250,10 @@ class _EventsHomeWidgetState extends State<EventsHomeWidget>
                                         child: SizedBox(
                                           width: 50.0,
                                           height: 50.0,
-                                          child: CircularProgressIndicator(
-                                            valueColor:
-                                                AlwaysStoppedAnimation<Color>(
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                            ),
+                                          child: SpinKitRipple(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            size: 50.0,
                                           ),
                                         ),
                                       );
@@ -299,12 +292,12 @@ class _EventsHomeWidgetState extends State<EventsHomeWidget>
                                   },
                                 ),
                               ),
-                            ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ],

@@ -123,7 +123,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                           Expanded(
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
+                                  15.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'b38gz6g5' /* Birthday */,
@@ -188,7 +188,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                         Expanded(
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 0.0, 0.0, 0.0),
+                                18.0, 0.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'whfak749' /* Party */,
@@ -242,7 +242,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
+                              10.0, 0.0, 0.0, 0.0),
                           child: FaIcon(
                             FontAwesomeIcons.solidHandshake,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -252,7 +252,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                         Expanded(
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 0.0, 0.0, 0.0),
+                                10.0, 0.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 's8jq3z3s' /* Reunion */,
@@ -306,7 +306,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
+                              10.0, 0.0, 0.0, 0.0),
                           child: Icon(
                             Icons.diamond_outlined,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -370,7 +370,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
+                              10.0, 0.0, 0.0, 0.0),
                           child: Icon(
                             Icons.speaker,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -434,7 +434,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
+                              10.0, 0.0, 0.0, 0.0),
                           child: Icon(
                             Icons.coffee,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -498,7 +498,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
+                              10.0, 0.0, 0.0, 0.0),
                           child: Icon(
                             Icons.format_paint,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -562,7 +562,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
+                              10.0, 0.0, 0.0, 0.0),
                           child: Icon(
                             Icons.web,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -626,7 +626,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
+                              10.0, 0.0, 0.0, 0.0),
                           child: FaIcon(
                             FontAwesomeIcons.networkWired,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -636,7 +636,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                         Expanded(
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 0.0, 0.0, 0.0),
+                                10.0, 0.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'kd0fhh34' /* Meetup */,
@@ -690,7 +690,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
+                              10.0, 0.0, 0.0, 0.0),
                           child: Icon(
                             Icons.sports_football,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -754,7 +754,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
+                              10.0, 0.0, 0.0, 0.0),
                           child: Icon(
                             Icons.connect_without_contact,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -818,7 +818,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
+                              10.0, 0.0, 0.0, 0.0),
                           child: Icon(
                             Icons.health_and_safety_rounded,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -882,7 +882,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
+                              10.0, 0.0, 0.0, 0.0),
                           child: Icon(
                             Icons.now_wallpaper,
                             color: FlutterFlowTheme.of(context).primaryText,

@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
 import '/components/template_list_tile_widget.dart';
+import '/discover/empty_discover_page_component/empty_discover_page_component_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -247,10 +248,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                                 child: SizedBox(
                                   width: 50.0,
                                   height: 50.0,
-                                  child: CircularProgressIndicator(
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      FlutterFlowTheme.of(context).primary,
-                                    ),
+                                  child: SpinKitRipple(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    size: 50.0,
                                   ),
                                 ),
                               );
@@ -305,17 +305,20 @@ class _SearchWidgetState extends State<SearchWidget> {
                           if (!snapshot.hasData) {
                             return Center(
                               child: SizedBox(
-                                width: 40.0,
-                                height: 40.0,
-                                child: SpinKitDoubleBounce(
+                                width: 50.0,
+                                height: 50.0,
+                                child: SpinKitRipple(
                                   color: FlutterFlowTheme.of(context).primary,
-                                  size: 40.0,
+                                  size: 50.0,
                                 ),
                               ),
                             );
                           }
                           List<EventRecord> listViewEventRecordList =
                               snapshot.data!;
+                          if (listViewEventRecordList.isEmpty) {
+                            return EmptyDiscoverPageComponentWidget();
+                          }
 
                           return ListView.builder(
                             padding: EdgeInsets.zero,

@@ -91,32 +91,48 @@ class _TemplateListTileWidgetState extends State<TemplateListTileWidget> {
                       Builder(
                         builder: (context) {
                           if (widget.documentEvent?.templateId == 0) {
-                            return Image.asset(
-                              'assets/images/unique-and-luxury-mandala-background-in-golden-color-for-invitation-and-other-work-free-vector.jpg',
-                              width: double.infinity,
-                              height: double.infinity,
-                              fit: BoxFit.fill,
+                            return Hero(
+                              tag: widget.documentEvent!.reference.id,
+                              transitionOnUserGestures: true,
+                              child: Image.asset(
+                                'assets/images/unique-and-luxury-mandala-background-in-golden-color-for-invitation-and-other-work-free-vector.jpg',
+                                width: double.infinity,
+                                height: double.infinity,
+                                fit: BoxFit.fill,
+                              ),
                             );
                           } else if (widget.documentEvent?.templateId == 1) {
-                            return Image.asset(
-                              'assets/images/f9d7045006bc7ee90fe9b8dc30f5b380.jpg',
-                              width: double.infinity,
-                              height: double.infinity,
-                              fit: BoxFit.fill,
+                            return Hero(
+                              tag: widget.documentEvent!.reference.id,
+                              transitionOnUserGestures: true,
+                              child: Image.asset(
+                                'assets/images/f9d7045006bc7ee90fe9b8dc30f5b380.jpg',
+                                width: double.infinity,
+                                height: double.infinity,
+                                fit: BoxFit.fill,
+                              ),
                             );
                           } else if (widget.documentEvent?.templateId == 2) {
-                            return Image.asset(
-                              'assets/images/christmas-gifts-red-ribbon-bows-decorations-beige-background-xmas-poster-vertical-banner-party-invitation-template-333688655.webp',
-                              width: double.infinity,
-                              height: double.infinity,
-                              fit: BoxFit.fill,
+                            return Hero(
+                              tag: widget.documentEvent!.reference.id,
+                              transitionOnUserGestures: true,
+                              child: Image.asset(
+                                'assets/images/christmas-gifts-red-ribbon-bows-decorations-beige-background-xmas-poster-vertical-banner-party-invitation-template-333688655.webp',
+                                width: double.infinity,
+                                height: double.infinity,
+                                fit: BoxFit.fill,
+                              ),
                             );
                           } else {
-                            return Image.asset(
-                              'assets/images/istockphoto-2155310808-612x612.jpg',
-                              width: double.infinity,
-                              height: double.infinity,
-                              fit: BoxFit.fill,
+                            return Hero(
+                              tag: widget.documentEvent!.reference.id,
+                              transitionOnUserGestures: true,
+                              child: Image.asset(
+                                'assets/images/istockphoto-2155310808-612x612.jpg',
+                                width: double.infinity,
+                                height: double.infinity,
+                                fit: BoxFit.fill,
+                              ),
                             );
                           }
                         },
