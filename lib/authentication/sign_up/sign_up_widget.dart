@@ -1132,7 +1132,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                           .showSnackBar(
                                         SnackBar(
                                           content: Text(
-                                            'Passwords don\'t match!',
+                                            FFLocalizations.of(context).getText(
+                                              'pau389zq' /* Passwords don't match */,
+                                            ),
                                           ),
                                         ),
                                       );

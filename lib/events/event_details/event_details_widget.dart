@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/profile_list_tile_widget.dart';
-import '/components/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -158,21 +157,6 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                 ),
               );
             },
-          ),
-        ),
-        drawer: Drawer(
-          elevation: 16.0,
-          child: Visibility(
-            visible: responsiveVisibility(
-              context: context,
-              phone: false,
-              tablet: false,
-            ),
-            child: wrapWithModel(
-              model: _model.sideBarModel,
-              updateCallback: () => safeSetState(() {}),
-              child: SideBarWidget(),
-            ),
           ),
         ),
         appBar: AppBar(
@@ -1016,65 +1000,68 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                             );
                           },
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 10.0, 10.0),
-                          child: StreamBuilder<List<RsvpRecord>>(
-                            stream: queryRsvpRecord(
-                              queryBuilder: (rsvpRecord) => rsvpRecord.where(
-                                'event_ref',
-                                isEqualTo: widget.eventDocument?.reference,
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 10.0, 10.0, 10.0),
+                            child: StreamBuilder<List<RsvpRecord>>(
+                              stream: queryRsvpRecord(
+                                queryBuilder: (rsvpRecord) => rsvpRecord.where(
+                                  'event_ref',
+                                  isEqualTo: widget.eventDocument?.reference,
+                                ),
                               ),
-                            ),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    child: SpinKitRipple(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      size: 50.0,
-                                    ),
-                                  ),
-                                );
-                              }
-                              List<RsvpRecord> listViewRsvpRecordList =
-                                  snapshot.data!;
-
-                              return ListView.builder(
-                                padding: EdgeInsets.zero,
-                                primary: false,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.vertical,
-                                itemCount: listViewRsvpRecordList.length,
-                                itemBuilder: (context, listViewIndex) {
-                                  final listViewRsvpRecord =
-                                      listViewRsvpRecordList[listViewIndex];
-                                  return Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 8.0),
-                                    child: wrapWithModel(
-                                      model: _model.profileListTileModels2
-                                          .getModel(
-                                        listViewRsvpRecord.reference.id,
-                                        listViewIndex,
-                                      ),
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: ProfileListTileWidget(
-                                        key: Key(
-                                          'Key3qa_${listViewRsvpRecord.reference.id}',
-                                        ),
-                                        usersDocumentRef:
-                                            listViewRsvpRecord.userRef!,
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: SpinKitRipple(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        size: 50.0,
                                       ),
                                     ),
                                   );
-                                },
-                              );
-                            },
+                                }
+                                List<RsvpRecord> listViewRsvpRecordList =
+                                    snapshot.data!;
+
+                                return ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  primary: false,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: listViewRsvpRecordList.length,
+                                  itemBuilder: (context, listViewIndex) {
+                                    final listViewRsvpRecord =
+                                        listViewRsvpRecordList[listViewIndex];
+                                    return Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 8.0, 0.0, 8.0),
+                                      child: wrapWithModel(
+                                        model: _model.profileListTileModels2
+                                            .getModel(
+                                          listViewRsvpRecord.reference.id,
+                                          listViewIndex,
+                                        ),
+                                        updateCallback: () =>
+                                            safeSetState(() {}),
+                                        child: ProfileListTileWidget(
+                                          key: Key(
+                                            'Key3qa_${listViewRsvpRecord.reference.id}',
+                                          ),
+                                          usersDocumentRef:
+                                              listViewRsvpRecord.userRef!,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                            ),
                           ),
                         ),
                       ],

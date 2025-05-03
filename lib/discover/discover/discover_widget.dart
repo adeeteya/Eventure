@@ -59,101 +59,6 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-          automaticallyImplyLeading: false,
-          title: Text(
-            FFLocalizations.of(context).getText(
-              'qr0a4xdk' /* Discover */,
-            ),
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.interTight(
-                    fontWeight:
-                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
-                    fontStyle:
-                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                  ),
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                  fontWeight:
-                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
-                  fontStyle:
-                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                ),
-          ),
-          actions: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-              child: FlutterFlowIconButton(
-                borderColor: Color(0xFFAFAFAF),
-                borderRadius: 40.0,
-                buttonSize: 40.0,
-                icon: Icon(
-                  Icons.search,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  size: 24.0,
-                ),
-                onPressed: () async {
-                  context.pushNamed(
-                    SearchWidget.routeName,
-                    extra: <String, dynamic>{
-                      kTransitionInfoKey: TransitionInfo(
-                        hasTransition: true,
-                        transitionType: PageTransitionType.rightToLeft,
-                        duration: Duration(milliseconds: 350),
-                      ),
-                    },
-                  );
-                },
-              ).addWalkthrough(
-                iconButton9bfvpzgq,
-                _model.discoverPageTutorialController,
-              ),
-            ),
-            Builder(
-              builder: (context) => Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                child: FlutterFlowIconButton(
-                  borderColor: Color(0xFFAFAFAF),
-                  borderRadius: 40.0,
-                  buttonSize: 40.0,
-                  icon: Icon(
-                    Icons.filter_list,
-                    color: FlutterFlowTheme.of(context).primaryText,
-                    size: 24.0,
-                  ),
-                  onPressed: () async {
-                    await showDialog(
-                      context: context,
-                      builder: (dialogContext) {
-                        return Dialog(
-                          elevation: 0,
-                          insetPadding: EdgeInsets.zero,
-                          backgroundColor: Colors.transparent,
-                          alignment: AlignmentDirectional(0.0, 0.0)
-                              .resolve(Directionality.of(context)),
-                          child: GestureDetector(
-                            onTap: () {
-                              FocusScope.of(dialogContext).unfocus();
-                              FocusManager.instance.primaryFocus?.unfocus();
-                            },
-                            child: FilterDropdownWidget(),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                ).addWalkthrough(
-                  iconButtonO2f2zme3,
-                  _model.discoverPageTutorialController,
-                ),
-              ),
-            ),
-          ],
-          centerTitle: false,
-          elevation: 2.0,
-        ),
         body: SafeArea(
           top: true,
           child: Row(
@@ -165,74 +70,198 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                 child: SideBarWidget(),
               ),
               Expanded(
-                child: Align(
-                  alignment: AlignmentDirectional(0.0, -1.0),
-                  child: Container(
-                    constraints: BoxConstraints(
-                      maxWidth: 600.0,
-                    ),
-                    decoration: BoxDecoration(),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 20.0, 20.0, 20.0),
-                      child: StreamBuilder<List<EventRecord>>(
-                        stream: queryEventRecord(
-                          queryBuilder: (eventRecord) => eventRecord.where(
-                            'type',
-                            isEqualTo: FFAppState().currentFilter?.serialize(),
-                          ),
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: SpinKitRipple(
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  size: 50.0,
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    SafeArea(
+                      child: Container(
+                        width: double.infinity,
+                        height: 56.0,
+                        decoration: BoxDecoration(),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 20.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'w4sx4g9f' /* Discover */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .override(
+                                      font: GoogleFonts.interTight(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                              Spacer(),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: FlutterFlowIconButton(
+                                  borderColor: Color(0xFFAFAFAF),
+                                  borderRadius: 40.0,
+                                  buttonSize: 40.0,
+                                  icon: Icon(
+                                    Icons.search,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
+                                  ),
+                                  onPressed: () async {
+                                    context.pushNamed(
+                                      SearchWidget.routeName,
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.rightToLeft,
+                                          duration: Duration(milliseconds: 350),
+                                        ),
+                                      },
+                                    );
+                                  },
+                                ).addWalkthrough(
+                                  iconButton9bfvpzgq,
+                                  _model.discoverPageTutorialController,
                                 ),
                               ),
-                            );
-                          }
-                          List<EventRecord> listViewEventRecordList =
-                              snapshot.data!;
-                          if (listViewEventRecordList.isEmpty) {
-                            return EmptyDiscoverPageComponentWidget();
-                          }
-
-                          return ListView.builder(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: listViewEventRecordList.length,
-                            itemBuilder: (context, listViewIndex) {
-                              final listViewEventRecord =
-                                  listViewEventRecordList[listViewIndex];
-                              return wrapWithModel(
-                                model: _model.templateListTileModels.getModel(
-                                  listViewEventRecord.reference.id,
-                                  listViewIndex,
-                                ),
-                                updateCallback: () => safeSetState(() {}),
-                                child: TemplateListTileWidget(
-                                  key: Key(
-                                    'Key81q_${listViewEventRecord.reference.id}',
+                              Builder(
+                                builder: (context) => FlutterFlowIconButton(
+                                  borderColor: Color(0xFFAFAFAF),
+                                  borderRadius: 40.0,
+                                  buttonSize: 40.0,
+                                  icon: Icon(
+                                    Icons.filter_list,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
                                   ),
-                                  documentEvent: listViewEventRecord,
+                                  onPressed: () async {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (dialogContext) {
+                                        return Dialog(
+                                          elevation: 0,
+                                          insetPadding: EdgeInsets.zero,
+                                          backgroundColor: Colors.transparent,
+                                          alignment: AlignmentDirectional(
+                                                  0.0, 0.0)
+                                              .resolve(
+                                                  Directionality.of(context)),
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(dialogContext)
+                                                  .unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: FilterDropdownWidget(),
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  },
+                                ).addWalkthrough(
+                                  iconButtonO2f2zme3,
+                                  _model.discoverPageTutorialController,
                                 ),
-                              ).addWalkthrough(
-                                container81q3tod4,
-                                _model.discoverPageTutorialController,
-                                listIndex: listViewIndex,
-                              );
-                            },
-                          );
-                        },
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    Expanded(
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, -1.0),
+                        child: Container(
+                          constraints: BoxConstraints(
+                            maxWidth: 600.0,
+                          ),
+                          decoration: BoxDecoration(),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 20.0, 20.0, 20.0),
+                            child: StreamBuilder<List<EventRecord>>(
+                              stream: queryEventRecord(
+                                queryBuilder: (eventRecord) =>
+                                    eventRecord.where(
+                                  'type',
+                                  isEqualTo:
+                                      FFAppState().currentFilter?.serialize(),
+                                ),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: SpinKitRipple(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        size: 50.0,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<EventRecord> listViewEventRecordList =
+                                    snapshot.data!;
+                                if (listViewEventRecordList.isEmpty) {
+                                  return EmptyDiscoverPageComponentWidget();
+                                }
+
+                                return ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  primary: false,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: listViewEventRecordList.length,
+                                  itemBuilder: (context, listViewIndex) {
+                                    final listViewEventRecord =
+                                        listViewEventRecordList[listViewIndex];
+                                    return wrapWithModel(
+                                      model: _model.templateListTileModels
+                                          .getModel(
+                                        listViewEventRecord.reference.id,
+                                        listViewIndex,
+                                      ),
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: TemplateListTileWidget(
+                                        key: Key(
+                                          'Key81q_${listViewEventRecord.reference.id}',
+                                        ),
+                                        documentEvent: listViewEventRecord,
+                                      ),
+                                    ).addWalkthrough(
+                                      container81q3tod4,
+                                      _model.discoverPageTutorialController,
+                                      listIndex: listViewIndex,
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

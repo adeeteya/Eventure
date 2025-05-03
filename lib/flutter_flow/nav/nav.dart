@@ -98,41 +98,49 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: EditProfileWidget.routeName,
           path: EditProfileWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => EditProfileWidget(),
         ),
         FFRoute(
           name: CreateEventPageWidget.routeName,
           path: CreateEventPageWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => CreateEventPageWidget(),
         ),
         FFRoute(
           name: ChangePasswordWidget.routeName,
           path: ChangePasswordWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => ChangePasswordWidget(),
         ),
         FFRoute(
           name: SuggestFeatureWidget.routeName,
           path: SuggestFeatureWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => SuggestFeatureWidget(),
         ),
         FFRoute(
           name: PreviewPageWidget.routeName,
           path: PreviewPageWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => PreviewPageWidget(),
         ),
         FFRoute(
           name: EnterEventDetailsWidget.routeName,
           path: EnterEventDetailsWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => EnterEventDetailsWidget(),
         ),
         FFRoute(
           name: CustomizeTemplatePageWidget.routeName,
           path: CustomizeTemplatePageWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => CustomizeTemplatePageWidget(),
         ),
         FFRoute(
           name: DiscoverWidget.routeName,
           path: DiscoverWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'Discover')
               : DiscoverWidget(),
@@ -148,11 +156,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: SubmitBugWidget.routeName,
           path: SubmitBugWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => SubmitBugWidget(),
         ),
         FFRoute(
           name: EventsHomeWidget.routeName,
           path: EventsHomeWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'EventsHome')
               : EventsHomeWidget(),
@@ -160,6 +170,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: EventDetailsWidget.routeName,
           path: EventDetailsWidget.routePath,
+          requireAuth: true,
           asyncParams: {
             'eventDocument': getDoc(['Event'], EventRecord.fromSnapshot),
           },
@@ -173,21 +184,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: SearchWidget.routeName,
           path: SearchWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => SearchWidget(),
         ),
         FFRoute(
           name: EditCustomizeTemplatePageWidget.routeName,
           path: EditCustomizeTemplatePageWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => EditCustomizeTemplatePageWidget(),
         ),
         FFRoute(
           name: EditEventDetailsWidget.routeName,
           path: EditEventDetailsWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => EditEventDetailsWidget(),
         ),
         FFRoute(
           name: EditPreviewEventWidget.routeName,
           path: EditPreviewEventWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => EditPreviewEventWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
@@ -375,16 +390,18 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Container(
-                  color: Colors.transparent,
-                  child: Center(
-                    child: Image.asset(
-                      'assets/images/event.png',
-                      width: MediaQuery.sizeOf(context).width * 0.59,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                )
+              ? isWeb
+                  ? Container()
+                  : Container(
+                      color: Colors.transparent,
+                      child: Center(
+                        child: Image.asset(
+                          'assets/images/event.png',
+                          width: MediaQuery.sizeOf(context).width * 0.59,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    )
               : page;
 
           final transitionInfo = state.transitionInfo;

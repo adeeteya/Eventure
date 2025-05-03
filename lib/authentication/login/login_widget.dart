@@ -657,7 +657,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           .showSnackBar(
                                         SnackBar(
                                           content: Text(
-                                            'Email required!',
+                                            FFLocalizations.of(context).getText(
+                                              'p5wqn062' /* Please enter your email to res... */,
+                                            ),
                                           ),
                                         ),
                                       );

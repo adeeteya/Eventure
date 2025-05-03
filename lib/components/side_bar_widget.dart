@@ -82,7 +82,7 @@ class _SideBarWidgetState extends State<SideBarWidget>
       child: AnimatedContainer(
         duration: Duration(milliseconds: 200),
         curve: Curves.easeInOut,
-        width: FFAppState().navOpen ? 270.0 : 74.0,
+        width: FFAppState().navOpen ? 270.0 : 78.0,
         height: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
@@ -188,8 +188,8 @@ class _SideBarWidgetState extends State<SideBarWidget>
                                     currentUserPhoto,
                                     'https://avatar.iran.liara.run/public',
                                   ),
-                                  width: 44.0,
-                                  height: 44.0,
+                                  width: 40.0,
+                                  height: 40.0,
                                   fit: BoxFit.cover,
                                 ),
                               ),
