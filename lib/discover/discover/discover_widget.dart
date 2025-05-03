@@ -2,11 +2,16 @@ import '/backend/backend.dart';
 import '/components/filter_dropdown_widget.dart';
 import '/components/side_bar_widget.dart';
 import '/components/template_list_tile_widget.dart';
+import '/discover/empty_discover_page_component/empty_discover_page_component_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/walkthroughs/discover_page_tutorial.dart';
 import '/index.dart';
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
+    show TutorialCoachMark;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'discover_model.dart';
@@ -101,6 +106,9 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                     },
                   );
                 },
+              ).addWalkthrough(
+                iconButton9bfvpzgq,
+                _model.discoverPageTutorialController,
               ),
             ),
             Builder(
@@ -136,6 +144,9 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                       },
                     );
                   },
+                ).addWalkthrough(
+                  iconButtonO2f2zme3,
+                  _model.discoverPageTutorialController,
                 ),
               ),
             ),
@@ -155,10 +166,10 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     constraints: BoxConstraints(
-                      maxWidth: 500.0,
+                      maxWidth: 600.0,
                     ),
                     decoration: BoxDecoration(),
                     child: Padding(
@@ -178,16 +189,18 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                               child: SizedBox(
                                 width: 50.0,
                                 height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
-                                  ),
+                                child: SpinKitRipple(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  size: 50.0,
                                 ),
                               ),
                             );
                           }
                           List<EventRecord> listViewEventRecordList =
                               snapshot.data!;
+                          if (listViewEventRecordList.isEmpty) {
+                            return EmptyDiscoverPageComponentWidget();
+                          }
 
                           return ListView.builder(
                             padding: EdgeInsets.zero,
@@ -209,6 +222,10 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                                   ),
                                   documentEvent: listViewEventRecord,
                                 ),
+                              ).addWalkthrough(
+                                container81q3tod4,
+                                _model.discoverPageTutorialController,
+                                listIndex: listViewIndex,
                               );
                             },
                           );
@@ -224,4 +241,15 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
       ),
     );
   }
+
+  TutorialCoachMark createPageWalkthrough(BuildContext context) =>
+      TutorialCoachMark(
+        targets: createWalkthroughTargets(context),
+        onFinish: () async {
+          safeSetState(() => _model.discoverPageTutorialController = null);
+        },
+        onSkip: () {
+          return true;
+        },
+      );
 }

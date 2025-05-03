@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'template_loading_list_tile_model.dart';
 export 'template_loading_list_tile_model.dart';
@@ -56,10 +57,9 @@ class _TemplateLoadingListTileWidgetState
             child: SizedBox(
               width: 50.0,
               height: 50.0,
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(
-                  FlutterFlowTheme.of(context).primary,
-                ),
+              child: SpinKitRipple(
+                color: FlutterFlowTheme.of(context).primary,
+                size: 50.0,
               ),
             ),
           );
@@ -113,32 +113,48 @@ class _TemplateLoadingListTileWidgetState
                           Builder(
                             builder: (context) {
                               if (cardEventRecord.templateId == 0) {
-                                return Image.asset(
-                                  'assets/images/unique-and-luxury-mandala-background-in-golden-color-for-invitation-and-other-work-free-vector.jpg',
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  fit: BoxFit.fill,
+                                return Hero(
+                                  tag: widget.documentEventRef!.id,
+                                  transitionOnUserGestures: true,
+                                  child: Image.asset(
+                                    'assets/images/unique-and-luxury-mandala-background-in-golden-color-for-invitation-and-other-work-free-vector.jpg',
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    fit: BoxFit.fill,
+                                  ),
                                 );
                               } else if (cardEventRecord.templateId == 1) {
-                                return Image.asset(
-                                  'assets/images/f9d7045006bc7ee90fe9b8dc30f5b380.jpg',
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  fit: BoxFit.fill,
+                                return Hero(
+                                  tag: widget.documentEventRef!.id,
+                                  transitionOnUserGestures: true,
+                                  child: Image.asset(
+                                    'assets/images/f9d7045006bc7ee90fe9b8dc30f5b380.jpg',
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    fit: BoxFit.fill,
+                                  ),
                                 );
                               } else if (cardEventRecord.templateId == 2) {
-                                return Image.asset(
-                                  'assets/images/christmas-gifts-red-ribbon-bows-decorations-beige-background-xmas-poster-vertical-banner-party-invitation-template-333688655.webp',
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  fit: BoxFit.fill,
+                                return Hero(
+                                  tag: widget.documentEventRef!.id,
+                                  transitionOnUserGestures: true,
+                                  child: Image.asset(
+                                    'assets/images/christmas-gifts-red-ribbon-bows-decorations-beige-background-xmas-poster-vertical-banner-party-invitation-template-333688655.webp',
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    fit: BoxFit.fill,
+                                  ),
                                 );
                               } else {
-                                return Image.asset(
-                                  'assets/images/istockphoto-2155310808-612x612.jpg',
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  fit: BoxFit.fill,
+                                return Hero(
+                                  tag: widget.documentEventRef!.id,
+                                  transitionOnUserGestures: true,
+                                  child: Image.asset(
+                                    'assets/images/istockphoto-2155310808-612x612.jpg',
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    fit: BoxFit.fill,
+                                  ),
                                 );
                               }
                             },

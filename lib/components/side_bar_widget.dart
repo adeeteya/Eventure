@@ -176,36 +176,21 @@ class _SideBarWidgetState extends State<SideBarWidget>
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          AnimatedContainer(
-                            duration: Duration(milliseconds: 200),
-                            curve: Curves.easeInOut,
-                            width: FFAppState().navOpen ? 50.0 : 36.0,
-                            height: FFAppState().navOpen ? 50.0 : 36.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).accent1,
-                              borderRadius: BorderRadius.circular(12.0),
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context).primary,
-                                width: 2.0,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.all(2.0),
-                              child: AuthUserStreamWidget(
-                                builder: (context) => ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: CachedNetworkImage(
-                                    fadeInDuration: Duration(milliseconds: 500),
-                                    fadeOutDuration:
-                                        Duration(milliseconds: 500),
-                                    imageUrl: valueOrDefault<String>(
-                                      currentUserPhoto,
-                                      'https://avatar.iran.liara.run/public',
-                                    ),
-                                    width: 44.0,
-                                    height: 44.0,
-                                    fit: BoxFit.cover,
+                          Padding(
+                            padding: EdgeInsets.all(2.0),
+                            child: AuthUserStreamWidget(
+                              builder: (context) => ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: CachedNetworkImage(
+                                  fadeInDuration: Duration(milliseconds: 500),
+                                  fadeOutDuration: Duration(milliseconds: 500),
+                                  imageUrl: valueOrDefault<String>(
+                                    currentUserPhoto,
+                                    'https://avatar.iran.liara.run/public',
                                   ),
+                                  width: 44.0,
+                                  height: 44.0,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),

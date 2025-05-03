@@ -94,7 +94,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
                                       image: Image.asset(
-                                        'assets/images/ic_launcher.png',
+                                        'assets/images/event.png',
                                       ).image,
                                     ),
                                     boxShadow: [

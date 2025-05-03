@@ -102,7 +102,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
                                       image: Image.asset(
-                                        'assets/images/ic_launcher.png',
+                                        'assets/images/event.png',
                                       ).image,
                                     ),
                                     boxShadow: [

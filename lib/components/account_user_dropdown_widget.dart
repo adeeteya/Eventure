@@ -191,41 +191,25 @@ class _AccountUserDropdownWidgetState extends State<AccountUserDropdownWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 12.0, 0.0),
-                          child: Container(
-                            width: 40.0,
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).accent1,
-                              borderRadius: BorderRadius.circular(12.0),
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context).primary,
-                                width: 2.0,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.all(2.0),
-                              child: AuthUserStreamWidget(
-                                builder: (context) => ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.network(
-                                    valueOrDefault<String>(
-                                      currentUserPhoto,
-                                      'https://avatar.iran.liara.run/public',
-                                    ),
-                                    width: 36.0,
-                                    height: 36.0,
-                                    fit: BoxFit.cover,
-                                  ),
+                          padding: EdgeInsets.all(2.0),
+                          child: AuthUserStreamWidget(
+                            builder: (context) => ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.network(
+                                valueOrDefault<String>(
+                                  currentUserPhoto,
+                                  'https://avatar.iran.liara.run/public',
                                 ),
+                                width: 40.0,
+                                height: 40.0,
+                                fit: BoxFit.cover,
                               ),
                             ),
                           ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              4.0, 0.0, 0.0, 0.0),
+                              8.0, 0.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,

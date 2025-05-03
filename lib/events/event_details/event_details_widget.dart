@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'event_details_model.dart';
 export 'event_details_model.dart';
@@ -159,6 +160,21 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
             },
           ),
         ),
+        drawer: Drawer(
+          elevation: 16.0,
+          child: Visibility(
+            visible: responsiveVisibility(
+              context: context,
+              phone: false,
+              tablet: false,
+            ),
+            child: wrapWithModel(
+              model: _model.sideBarModel,
+              updateCallback: () => safeSetState(() {}),
+              child: SideBarWidget(),
+            ),
+          ),
+        ),
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
@@ -211,16 +227,6 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                 phone: false,
                 tablet: false,
               ))
-                wrapWithModel(
-                  model: _model.sideBarModel,
-                  updateCallback: () => safeSetState(() {}),
-                  child: SideBarWidget(),
-                ),
-              if (responsiveVisibility(
-                context: context,
-                phone: false,
-                tablet: false,
-              ))
                 Expanded(
                   flex: 1,
                   child: Container(
@@ -230,32 +236,48 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                         Builder(
                           builder: (context) {
                             if (widget.eventDocument?.templateId == 0) {
-                              return Image.asset(
-                                'assets/images/unique-and-luxury-mandala-background-in-golden-color-for-invitation-and-other-work-free-vector.jpg',
-                                width: double.infinity,
-                                height: double.infinity,
-                                fit: BoxFit.fill,
+                              return Hero(
+                                tag: widget.eventDocument!.reference.id,
+                                transitionOnUserGestures: true,
+                                child: Image.asset(
+                                  'assets/images/unique-and-luxury-mandala-background-in-golden-color-for-invitation-and-other-work-free-vector.jpg',
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  fit: BoxFit.fill,
+                                ),
                               );
                             } else if (widget.eventDocument?.templateId == 1) {
-                              return Image.asset(
-                                'assets/images/f9d7045006bc7ee90fe9b8dc30f5b380.jpg',
-                                width: double.infinity,
-                                height: double.infinity,
-                                fit: BoxFit.fill,
+                              return Hero(
+                                tag: widget.eventDocument!.reference.id,
+                                transitionOnUserGestures: true,
+                                child: Image.asset(
+                                  'assets/images/f9d7045006bc7ee90fe9b8dc30f5b380.jpg',
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  fit: BoxFit.fill,
+                                ),
                               );
                             } else if (widget.eventDocument?.templateId == 2) {
-                              return Image.asset(
-                                'assets/images/christmas-gifts-red-ribbon-bows-decorations-beige-background-xmas-poster-vertical-banner-party-invitation-template-333688655.webp',
-                                width: double.infinity,
-                                height: double.infinity,
-                                fit: BoxFit.fill,
+                              return Hero(
+                                tag: widget.eventDocument!.reference.id,
+                                transitionOnUserGestures: true,
+                                child: Image.asset(
+                                  'assets/images/christmas-gifts-red-ribbon-bows-decorations-beige-background-xmas-poster-vertical-banner-party-invitation-template-333688655.webp',
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  fit: BoxFit.fill,
+                                ),
                               );
                             } else {
-                              return Image.asset(
-                                'assets/images/istockphoto-2155310808-612x612.jpg',
-                                width: double.infinity,
-                                height: double.infinity,
-                                fit: BoxFit.fill,
+                              return Hero(
+                                tag: widget.eventDocument!.reference.id,
+                                transitionOnUserGestures: true,
+                                child: Image.asset(
+                                  'assets/images/istockphoto-2155310808-612x612.jpg',
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  fit: BoxFit.fill,
+                                ),
                               );
                             }
                           },
@@ -386,36 +408,56 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                                   builder: (context) {
                                     if (widget.eventDocument?.templateId ==
                                         0) {
-                                      return Image.asset(
-                                        'assets/images/unique-and-luxury-mandala-background-in-golden-color-for-invitation-and-other-work-free-vector.jpg',
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        fit: BoxFit.fill,
+                                      return Hero(
+                                        tag:
+                                            widget.eventDocument!.reference.id,
+                                        transitionOnUserGestures: true,
+                                        child: Image.asset(
+                                          'assets/images/unique-and-luxury-mandala-background-in-golden-color-for-invitation-and-other-work-free-vector.jpg',
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          fit: BoxFit.fill,
+                                        ),
                                       );
                                     } else if (widget
                                             .eventDocument?.templateId ==
                                         1) {
-                                      return Image.asset(
-                                        'assets/images/f9d7045006bc7ee90fe9b8dc30f5b380.jpg',
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        fit: BoxFit.fill,
+                                      return Hero(
+                                        tag:
+                                            widget.eventDocument!.reference.id,
+                                        transitionOnUserGestures: true,
+                                        child: Image.asset(
+                                          'assets/images/f9d7045006bc7ee90fe9b8dc30f5b380.jpg',
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          fit: BoxFit.fill,
+                                        ),
                                       );
                                     } else if (widget
                                             .eventDocument?.templateId ==
                                         2) {
-                                      return Image.asset(
-                                        'assets/images/christmas-gifts-red-ribbon-bows-decorations-beige-background-xmas-poster-vertical-banner-party-invitation-template-333688655.webp',
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        fit: BoxFit.fill,
+                                      return Hero(
+                                        tag:
+                                            widget.eventDocument!.reference.id,
+                                        transitionOnUserGestures: true,
+                                        child: Image.asset(
+                                          'assets/images/christmas-gifts-red-ribbon-bows-decorations-beige-background-xmas-poster-vertical-banner-party-invitation-template-333688655.webp',
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          fit: BoxFit.fill,
+                                        ),
                                       );
                                     } else {
-                                      return Image.asset(
-                                        'assets/images/istockphoto-2155310808-612x612.jpg',
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        fit: BoxFit.fill,
+                                      return Hero(
+                                        tag:
+                                            widget.eventDocument!.reference.id,
+                                        transitionOnUserGestures: true,
+                                        child: Image.asset(
+                                          'assets/images/istockphoto-2155310808-612x612.jpg',
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          fit: BoxFit.fill,
+                                        ),
                                       );
                                     }
                                   },
@@ -929,10 +971,9 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                                 child: SizedBox(
                                   width: 50.0,
                                   height: 50.0,
-                                  child: CircularProgressIndicator(
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      FlutterFlowTheme.of(context).primary,
-                                    ),
+                                  child: SpinKitRipple(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    size: 50.0,
                                   ),
                                 ),
                               );
@@ -992,10 +1033,10 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                                   child: SizedBox(
                                     width: 50.0,
                                     height: 50.0,
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                        FlutterFlowTheme.of(context).primary,
-                                      ),
+                                    child: SpinKitRipple(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 50.0,
                                     ),
                                   ),
                                 );
