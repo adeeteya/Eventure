@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -16,12 +17,19 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      _isNewUser = prefs.getBool('ff_isNewUser') ?? _isNewUser;
+    });
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
+
+  late SharedPreferences prefs;
 
   /// Boolean Value to Indicate whether the navbar is open or closed
   bool _navOpen = false;
@@ -60,4 +68,23 @@ class FFAppState extends ChangeNotifier {
   set editEventIdentifier(DocumentReference? value) {
     _editEventIdentifier = value;
   }
+
+  bool _isNewUser = false;
+  bool get isNewUser => _isNewUser;
+  set isNewUser(bool value) {
+    _isNewUser = value;
+    prefs.setBool('ff_isNewUser', value);
+  }
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

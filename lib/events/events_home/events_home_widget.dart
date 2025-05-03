@@ -196,7 +196,6 @@ class _EventsHomeWidgetState extends State<EventsHomeWidget>
 
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
-                                      shrinkWrap: true,
                                       scrollDirection: Axis.vertical,
                                       itemCount: listViewEventRecordList.length,
                                       itemBuilder: (context, listViewIndex) {
@@ -263,7 +262,6 @@ class _EventsHomeWidgetState extends State<EventsHomeWidget>
 
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
-                                      shrinkWrap: true,
                                       scrollDirection: Axis.vertical,
                                       itemCount: listViewRsvpRecordList.length,
                                       itemBuilder: (context, listViewIndex) {

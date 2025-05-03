@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../auth_manager.dart';
+import '../../flutter_flow/flutter_flow_util.dart';
 
 import '/backend/backend.dart';
 import 'anonymous_auth.dart';
@@ -139,7 +140,10 @@ class FirebaseAuthManager extends AuthManager
       return null;
     }
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Password reset email sent')),
+      SnackBar(
+          content: Text(FFLocalizations.of(context).getText(
+        '2jay3aoa' /* The Password Reset email has b... */,
+      ))),
     );
   }
 
@@ -311,10 +315,12 @@ class FirebaseAuthManager extends AuthManager
           : EventureFirebaseUser.fromUserCredential(userCredential);
     } on FirebaseAuthException catch (e) {
       final errorMsg = switch (e.code) {
-        'email-already-in-use' =>
-          'Error: The email is already in use by a different account',
-        'INVALID_LOGIN_CREDENTIALS' =>
-          'Error: The supplied auth credential is incorrect, malformed or has expired',
+        'email-already-in-use' => FFLocalizations.of(context).getText(
+            'svg22w8t' /* This email is already in use. ... */,
+          ),
+        'INVALID_LOGIN_CREDENTIALS' => FFLocalizations.of(context).getText(
+            'at1jtqwp' /* The entered email/password is ... */,
+          ),
         _ => 'Error: ${e.message!}',
       };
       ScaffoldMessenger.of(context).hideCurrentSnackBar();

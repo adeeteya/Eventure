@@ -1,5 +1,4 @@
 import '/components/profile_list_tile_widget.dart';
-import '/components/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'event_details_widget.dart' show EventDetailsWidget;
@@ -12,21 +11,17 @@ class EventDetailsModel extends FlutterFlowModel<EventDetailsWidget> {
   late ProfileListTileModel profileListTileModel1;
   // Models for ProfileListTile dynamic component.
   late FlutterFlowDynamicModels<ProfileListTileModel> profileListTileModels2;
-  // Model for SideBar component.
-  late SideBarModel sideBarModel;
 
   @override
   void initState(BuildContext context) {
     profileListTileModel1 = createModel(context, () => ProfileListTileModel());
     profileListTileModels2 =
         FlutterFlowDynamicModels(() => ProfileListTileModel());
-    sideBarModel = createModel(context, () => SideBarModel());
   }
 
   @override
   void dispose() {
     profileListTileModel1.dispose();
     profileListTileModels2.dispose();
-    sideBarModel.dispose();
   }
 }

@@ -63,6 +63,7 @@ class _WalkthroughTextWidgetState extends State<WalkthroughTextWidget> {
                       FlutterFlowTheme.of(context).titleLarge.fontWeight,
                   fontStyle: FlutterFlowTheme.of(context).titleLarge.fontStyle,
                 ),
+                color: Colors.white,
                 letterSpacing: 0.0,
                 fontWeight: FlutterFlowTheme.of(context).titleLarge.fontWeight,
                 fontStyle: FlutterFlowTheme.of(context).titleLarge.fontStyle,

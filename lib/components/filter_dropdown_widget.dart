@@ -97,7 +97,7 @@ class _FilterDropdownWidgetState extends State<FilterDropdownWidget> {
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     FFAppState().currentFilter = EventTypes.Birthday;
-                    _model.updatePage(() {});
+                    FFAppState().update(() {});
                     Navigator.pop(context);
                   },
                   child: Container(
