@@ -1122,6 +1122,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     return;
                                   }
                                   if (_model.isSignupFormValid == true) {
+                                    FFAppState().isNewUser = true;
                                     GoRouter.of(context).prepareAuthEvent();
                                     if (_model
                                             .passwordFieldTextController.text !=

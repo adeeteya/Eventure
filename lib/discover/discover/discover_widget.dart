@@ -11,6 +11,7 @@ import '/index.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -36,6 +37,15 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DiscoverModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (FFAppState().isNewUser) {
+        safeSetState(() => _model.discoverPageTutorialController =
+            createPageWalkthrough(context));
+        _model.discoverPageTutorialController?.show(context: context);
+      }
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -276,8 +286,12 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
         targets: createWalkthroughTargets(context),
         onFinish: () async {
           safeSetState(() => _model.discoverPageTutorialController = null);
+          FFAppState().isNewUser = false;
         },
         onSkip: () {
+          () async {
+            FFAppState().isNewUser = false;
+          }();
           return true;
         },
       );
